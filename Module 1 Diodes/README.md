@@ -92,31 +92,26 @@ This operation is critical in DC chopper circuits, inverter-fed motors, and cont
 
 ## 5. Rectifiers with Diodes
 
-### 5.1. Single-Phase Rectifiers
+### 5.1. Single-Phase Full-Wave Bridge Rectifier
 
-**Half-Wave Rectifier:**
-This is the simplest rectifier, using one diode. It is inefficient and has high ripple.
-- **Simulation Analysis:**
-  - The simulations in Figure 4 show the basic half-wave circuit and the effect of a filter capacitor. The output of the basic circuit is only the positive half of the AC sine wave, while the capacitor helps to smooth the output, although significant ripple remains.
+Uses a four-diode bridge for efficient AC to DC conversion. It is a significant improvement over half-wave rectification as it uses the entire AC cycle.
 
-<div align="center">
-  <img src="./images/rectificador_monofasico_media_onda.png" alt="Half-Wave Rectifier Circuit" width="400"/>
-  <img src="./images/rectificador_monofasico_media_onda_condensor.png" alt="Half-Wave Rectifier with Capacitor" width="400"/>
-  <p><i>Figure 4: Half-wave rectifier circuit and filtered output.</i></p>
-</div>
-
-**Full-Wave Bridge Rectifier:**
-Uses a four-diode bridge for more efficient AC to DC conversion.
 - **Key Parameters:**
   - Average voltage: $V_{dc} = \frac{2V_m}{\pi} = 0.637 V_m$
-  - Ripple factor: $RF = 0.482$
+  - Ripple factor: $RF = 0.482$ (without filter)
   - PIV per diode: $PIV = V_m$
+
 - **Simulation Analysis:**
-  - The simulation in Figure 5 shows the complete four-diode bridge circuit producing a full-wave rectified output from a 120V source.
+  - The simulations show the behavior of the full-wave rectifier. In Figure 4, the unfiltered output shows a pulsating DC waveform with significant ripple. In Figure 5, adding a filter capacitor drastically smooths the output, producing a nearly constant DC voltage, which is ideal for most electronic applications.
 
 <div align="center">
-  <img src="./images/rectificador_monofasico.png" alt="Full-Wave Rectifier Circuit" width="500"/>
-  <p><i>Figure 5: Full-wave bridge rectifier circuit.</i></p>
+  <img src="./images/rectificador_monofasico_fullwave_unfiltered.png" alt="Full-Wave Rectifier Unfiltered Output" width="500"/>
+  <p><i>Figure 4: Full-wave rectifier circuit and its unfiltered output.</i></p>
+</div>
+
+<div align="center">
+  <img src="./images/rectificador_monofasico_fullwave_filtered.png" alt="Full-Wave Rectifier Filtered Output" width="500"/>
+  <p><i>Figure 5: Full-wave rectifier with filter capacitor and smoothed DC output.</i></p>
 </div>
 
 ### 5.2. Three-Phase Full-Wave Bridge
