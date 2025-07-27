@@ -82,8 +82,7 @@ This operation is critical in DC chopper circuits, inverter-fed motors, and cont
 **Half-Wave Rectifier:**
 This is the simplest rectifier, using one diode. It is inefficient and has high ripple.
 - **Simulation Analysis:**
-  - `rectificador_monofasico_media_onda.png`: Shows the basic half-wave circuit. The output is only the positive half of the AC sine wave.
-  - `rectificador_monofasico_media_onda_condensor.png`: Demonstrates how adding a filter capacitor smooths the output, though significant ripple remains.
+  - The simulations in Figure 4 show the basic half-wave circuit and the effect of a filter capacitor. The output of the basic circuit is only the positive half of the AC sine wave, while the capacitor helps to smooth the output, although significant ripple remains.
 
 <div align="center">
   <img src="./images/rectificador_monofasico_media_onda.png" alt="Half-Wave Rectifier Circuit" width="400"/>
@@ -98,7 +97,7 @@ Uses a four-diode bridge for more efficient AC to DC conversion.
   - Ripple factor: $RF = 0.482$
   - PIV per diode: $PIV = V_m$
 - **Simulation Analysis:**
-  - `rectificador_monofasico.png`: The simulation shows the complete four-diode bridge circuit producing a full-wave rectified output from a 120V source.
+  - The simulation in Figure 5 shows the complete four-diode bridge circuit producing a full-wave rectified output from a 120V source.
 
 <div align="center">
   <img src="./images/rectificador_monofasico.png" alt="Full-Wave Rectifier Circuit" width="500"/>
@@ -113,10 +112,7 @@ A six-diode configuration that offers superior performance, ideal for industrial
   - Ripple factor: $RF = 0.042$
   - PIV per diode: $PIV = \sqrt{3}V_{LL}$
 - **Simulation Analysis:**
-  - `rectificador_trifasico_sources.png`: Shows the balanced 120V three-phase sources, each displaced by 120°.
-  - `rectificador_trifásico.png`: The complete six-diode bridge configuration.
-  - `rectificador_trifasico_V_R2_without_condensor.png`: The output waveform shows a six-pulse DC signal with a low 4.2% ripple before filtering.
-  - `rectificador_trifasico_V_R2_with_condensor.png`: After adding a filter capacitor, the output is a nearly constant 120V DC, demonstrating the effectiveness of three-phase rectification.
+  - The simulations in Figures 6 and 7 show the complete three-phase rectification process. Figure 6 displays the balanced three-phase sources and the six-diode bridge. Figure 7 shows the resulting six-pulse DC output and how a filter capacitor smooths it to a nearly constant 120V DC.
 
 <div align="center">
   <img src="./images/rectificador_trifasico_sources.png" alt="Three-Phase Sources" width="400"/>
@@ -200,9 +196,7 @@ RLC circuits with diodes exhibit nonlinear behavior due to the switching nature 
 **Diode Clipping Applications:**
 Clipping circuits are used to limit the voltage of a signal to a certain level.
 - **Simulation Analysis:**
-  - `shunt_clipper.png`: Shows a shunt clipper circuit, where the diode is in parallel with the load.
-  - `Shunt_clipper_graphic_possitive_peak_clipping.png`: This graph shows the output when the positive peak of the signal is clipped at the diode's forward voltage (~0.7V) plus the reference voltage.
-  - `Shunt_clipper_graphic_negative_peak_clipping.png`: This shows the negative peak being clipped.
+  - The shunt clipper circuit is shown in Figure 8. The resulting waveforms in Figure 9 demonstrate how the positive and negative peaks of the signal are clipped at the desired voltage levels.
 
 <div align="center">
   <img src="./images/shunt_clipper.png" alt="Shunt Clipper Circuit" width="400"/>
@@ -217,8 +211,7 @@ Clipping circuits are used to limit the voltage of a signal to a certain level.
 **Signal Slicing:**
 Slicing circuits, or clippers, remove a part of the signal between two voltage levels.
 - **Simulation Analysis:**
-  - `slicer.png`: The circuit diagram for a slicer, often using two diodes and two reference voltages.
-  - `slicer_graphic.png`: The output waveform shows the signal being "sliced" between the upper and lower voltage limits defined by the circuit.
+  - The slicer circuit and its output are shown in Figure 10. The waveform clearly shows the signal being "sliced," with the portion between the two reference voltages removed.
 
 <div align="center">
   <img src="./images/slicer.png" alt="Slicer Circuit" width="400"/>
