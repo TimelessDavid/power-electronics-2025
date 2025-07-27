@@ -85,6 +85,12 @@ This is the simplest rectifier, using one diode. It is inefficient and has high 
   - `rectificador_monofasico_media_onda.png`: Shows the basic half-wave circuit. The output is only the positive half of the AC sine wave.
   - `rectificador_monofasico_media_onda_condensor.png`: Demonstrates how adding a filter capacitor smooths the output, though significant ripple remains.
 
+<div align="center">
+  <img src="./images/rectificador_monofasico_media_onda.png" alt="Half-Wave Rectifier Circuit" width="400"/>
+  <img src="./images/rectificador_monofasico_media_onda_condensor.png" alt="Half-Wave Rectifier with Capacitor" width="400"/>
+  <p><i>Figure 4: Half-wave rectifier circuit and filtered output.</i></p>
+</div>
+
 **Full-Wave Bridge Rectifier:**
 Uses a four-diode bridge for more efficient AC to DC conversion.
 - **Key Parameters:**
@@ -93,6 +99,11 @@ Uses a four-diode bridge for more efficient AC to DC conversion.
   - PIV per diode: $PIV = V_m$
 - **Simulation Analysis:**
   - `rectificador_monofasico.png`: The simulation shows the complete four-diode bridge circuit producing a full-wave rectified output from a 120V source.
+
+<div align="center">
+  <img src="./images/rectificador_monofasico.png" alt="Full-Wave Rectifier Circuit" width="500"/>
+  <p><i>Figure 5: Full-wave bridge rectifier circuit.</i></p>
+</div>
 
 ### 5.2. Three-Phase Full-Wave Bridge
 
@@ -106,6 +117,17 @@ A six-diode configuration that offers superior performance, ideal for industrial
   - `rectificador_trifásico.png`: The complete six-diode bridge configuration.
   - `rectificador_trifasico_V_R2_without_condensor.png`: The output waveform shows a six-pulse DC signal with a low 4.2% ripple before filtering.
   - `rectificador_trifasico_V_R2_with_condensor.png`: After adding a filter capacitor, the output is a nearly constant 120V DC, demonstrating the effectiveness of three-phase rectification.
+
+<div align="center">
+  <img src="./images/rectificador_trifasico_sources.png" alt="Three-Phase Sources" width="400"/>
+  <img src="./images/rectificador_trifásico.png" alt="Three-Phase Rectifier Circuit" width="400"/>
+  <p><i>Figure 6: Three-phase sources and rectifier circuit.</i></p>
+</div>
+<div align="center">
+  <img src="./images/rectificador_trifasico_V_R2_without_condensor.png" alt="Three-Phase Output without Capacitor" width="400"/>
+  <img src="./images/rectificador_trifasico_V_R2_with_condensor.png" alt="Three-Phase Output with Capacitor" width="400"/>
+  <p><i>Figure 7: Three-phase rectifier output waveforms.</i></p>
+</div>
 
 ---
 
@@ -182,11 +204,27 @@ Clipping circuits are used to limit the voltage of a signal to a certain level.
   - `Shunt_clipper_graphic_possitive_peak_clipping.png`: This graph shows the output when the positive peak of the signal is clipped at the diode's forward voltage (~0.7V) plus the reference voltage.
   - `Shunt_clipper_graphic_negative_peak_clipping.png`: This shows the negative peak being clipped.
 
+<div align="center">
+  <img src="./images/shunt_clipper.png" alt="Shunt Clipper Circuit" width="400"/>
+  <p><i>Figure 8: Shunt clipper circuit.</i></p>
+</div>
+<div align="center">
+  <img src="./images/Shunt_clipper_graphic_possitive_peak_clipping.png" alt="Positive Peak Clipping" width="400"/>
+  <img src="./images/Shunt_clipper_graphic_negative_peak_clipping.png" alt="Negative Peak Clipping" width="400"/>
+  <p><i>Figure 9: Shunt clipper output waveforms.</i></p>
+</div>
+
 **Signal Slicing:**
 Slicing circuits, or clippers, remove a part of the signal between two voltage levels.
 - **Simulation Analysis:**
   - `slicer.png`: The circuit diagram for a slicer, often using two diodes and two reference voltages.
   - `slicer_graphic.png`: The output waveform shows the signal being "sliced" between the upper and lower voltage limits defined by the circuit.
+
+<div align="center">
+  <img src="./images/slicer.png" alt="Slicer Circuit" width="400"/>
+  <img src="./images/slicer_graphic.png" alt="Slicer Output Waveform" width="400"/>
+  <p><i>Figure 10: Slicer circuit and output waveform.</i></p>
+</div>
 
 **Operating Modes:**
 - **Diode ON:** The circuit behaves like a standard RLC circuit.
