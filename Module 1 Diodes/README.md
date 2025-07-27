@@ -77,30 +77,18 @@ Freewheeling diodes provide current continuity in inductive circuits when switch
 - Current decay: $i_L(t) = I_0 e^{-\frac{R}{L}t}$
 - Voltage limited to diode drop (~1V)
 
-  In power electronics circuits with inductive loads, a freewheeling diode provides a path for the inductive current when the main switching device turns off [1].
+  In power electronics circuits with inductive loads (such as motors or coils), a freewheeling diode is connected in parallel with the load to provide a path for the inductive current when the main switching device (e.g., a transistor or thyristor) turns off.
+[3]
+- **Protect the circuit** from high-voltage transients caused by the sudden interruption of current through inductance.
+- **Maintain current continuity** in the inductive load during the OFF period of the switch.
+- **Reduce voltage spikes** across switching devices, enhancing reliability.
 
-**Operation Principle:**
-- Inductor energy: $E_L = \frac{1}{2}LI^2$
-- Current decay: $i_L(t) = I_0 e^{-\frac{R}{L}t}$
-- Voltage limited to diode drop (~1V)
-
-**Shunt Clipper Application:**
-The simulation demonstrates a shunt clipper circuit using 1N4007 diodes. This configuration clips voltage peaks at predetermined levels, protecting sensitive components from overvoltage conditions.
-
-<div align="center">
-  <img src="./images/shunt_clipper_circuit.png" alt="Shunt Clipper Circuit" width="500"/>
-  <p><i>Figure 3: Shunt clipper with positive and negative peak clipping using 1N4007 diodes</i></p>
-</div>
-
-<div align="center">
-  <img src="./images/shunt_clipper_waveforms.png" alt="Shunt Clipper Waveforms" width="600"/>
-  <p><i>Figure 4: Input sine wave (green) and clipped output (blue) demonstrating voltage limiting</i></p>
-</div>
+This operation is critical in DC chopper circuits, inverter-fed motors, and controlled rectifiers where inductive elements are present.
 
 <!-- Image placeholder -->
 <div align="center">
   <img src="./images/freewheeling_circuit.png" alt="Freewheeling Circuit" width="400"/>
-  <p><i>Figure 5: Freewheeling diode operation in inductive circuits</i></p>
+  <p><i>Figure 3: Freewheeling diode operation</i></p>
 </div>
 
 ---
@@ -109,67 +97,38 @@ The simulation demonstrates a shunt clipper circuit using 1N4007 diodes. This co
 
 ### 5.1. Single-Phase Full-Wave Bridge
 
-Four-diode bridge configuration for AC to DC conversion [2]. The simulation shows a single-phase bridge rectifier with capacitive filtering.
+Four-diode bridge configuration for AC to DC conversion [2]:
 
 **Key Parameters:**
 - Average voltage: $V_{dc} = \frac{2V_m}{\pi} = 0.637 V_m$
 - Ripple factor: $RF = 0.482$
 - PIV per diode: $PIV = V_m$
 
-<div align="center">
-  <img src="./images/single_phase_rectifier_circuit.png" alt="Single-Phase Rectifier Circuit" width="500"/>
-  <p><i>Figure 6: Single-phase bridge rectifier with capacitive filter (100μF, 100kΩ load)</i></p>
-</div>
-
-<div align="center">
-  <img src="./images/single_phase_output_filtered.png" alt="Single-Phase Filtered Output" width="600"/>
-  <p><i>Figure 7: Rectified output with capacitive filtering showing reduced ripple (~120V DC)</i></p>
-</div>
-
-<div align="center">
-  <img src="./images/single_phase_output_unfiltered.png" alt="Single-Phase Unfiltered Output" width="600"/>
-  <p><i>Figure 8: Unfiltered rectifier output showing characteristic pulsating DC waveform</i></p>
-</div>
+**Simulation Results:**
+The single-phase rectifier simulation demonstrates typical full-wave rectification:
+- `rectificador_monofasico.png` shows the complete four-diode bridge circuit producing 120V DC output
+- Output exhibits characteristic pulsating DC waveform with 100Hz ripple frequency
 
 ### 5.2. Three-Phase Full-Wave Bridge
 
-Six-diode configuration with superior performance [3]. The simulation demonstrates the three-phase rectifier's enhanced characteristics.
+Six-diode configuration with superior performance [3]:
 
 **Key Parameters:**
 - Average voltage: $V_{dc} = \frac{3\sqrt{6}V_{LL}}{\pi} = 1.35 V_{LL}$
 - Ripple factor: $RF = 0.042$
 - PIV per diode: $PIV = \sqrt{3}V_{LL}$
 
-<div align="center">
-  <img src="./images/three_phase_rectifier_circuit.png" alt="Three-Phase Rectifier Circuit" width="600"/>
-  <p><i>Figure 9: Three-phase bridge rectifier with 120° phase-shifted sources and capacitive filter</i></p>
-</div>
-
-<div align="center">
-  <img src="./images/three_phase_output_filtered.png" alt="Three-Phase Filtered Output" width="600"/>
-  <p><i>Figure 10: Smooth DC output (~120V) with minimal ripple due to three-phase rectification</i></p>
-</div>
-
-<div align="center">
-  <img src="./images/three_phase_output_unfiltered.png" alt="Three-Phase Unfiltered Output" width="600"/>
-  <p><i>Figure 11: Unfiltered three-phase output showing six-pulse characteristic with low ripple</i></p>
-</div>
-
-<div align="center">
-  <img src="./images/three_phase_input_voltages.png" alt="Three-Phase Input Voltages" width="600"/>
-  <p><i>Figure 12: Three-phase input voltages (120° apart) showing balanced system operation</i></p>
-</div>
-- Suitable for industrial applications and high-power systems.
-- 
-**Key Parameters:**
-- Average voltage: $V_{dc} = \frac{3\sqrt{6}V_{LL}}{\pi} = 1.35 V_{LL}$
-- Ripple factor: $RF = 0.042$
-- PIV per diode: $PIV = \sqrt{3}V_{LL}$
+**Simulation Analysis:**
+Three-phase rectifier simulations confirm superior performance:
+- `rectificador_trifasico_sources.png`: Balanced 120V three-phase sources with 120° displacement
+- `rectificador_trifásico.png`: Complete six-diode bridge configuration
+- `rectificador_trifasico_V_R2_without_condensor.png`: Six-pulse output with 4.2% ripple
+- `rectificador_trifasico_V_R2_with_condensor.png`: Filtered output achieving near-constant 120V DC
 
 <!-- Image placeholder -->
 <div align="center">
-  <img src="./images/rectifier_circuits.png" alt="Rectifier Circuits" width="600"/>
-  <p><i>Figure 4: Single-phase and three-phase rectifier circuits</i></p>
+  <img src="./images/rectificador_trifásico.png" alt="Three-Phase Rectifier Circuit" width="600"/>
+  <p><i>Figure 4: Three-phase bridge rectifier configuration</i></p>
 </div>
 
 ---
@@ -245,59 +204,52 @@ Output: 24V DC, 5A; Input: 230V AC
 ## 8. RLC Circuit Behavior with Diodes
 
 RLC circuits with diodes exhibit nonlinear behavior due to diode switching [1]:
-**Resistive (R) Load**
-- The output voltage waveform follows the shape of the rectified input.
-- The diode conducts only when the input voltage is positive.
-**Inductive (RL) Load**
-- Current cannot change instantaneously due to inductance.
-- A freewheeling diode is required to maintain current flow when the main switch turns off.
-- Without it, high voltage spikes may damage components.
-**RLC Load**
-- Causes oscillatory response due to energy exchange between inductor and capacitor.
-- The system may exhibit underdamped, critically damped, or overdamped behavior.
-- Diode conduction depends on the instantaneous polarity and energy stored.
-- 
+
+**Diode Clipping Applications:**
+Real-world implementations demonstrate diode behavior in signal processing:
+- `shunt_clipper.png`: Shunt clipper circuit configuration for peak limiting
+- `Shunt_clipper_graphic_possitive_peak_clipping.png`: Positive peak clipping at 10V level, demonstrating diode forward conduction
+- `Shunt_clipper_graphic_negative_peak_clipping.png`: Negative peak clipping protection, showing diode reverse blocking
+
+**Signal Slicing:**
+- `slicer.png`: Slicer circuit implementing dual-level voltage limiting
+- `slicer_graphic.png`: Output waveform showing precise voltage level control between upper and lower clipping levels
+
 **Operating Modes:**
 - **Diode ON:** Standard RLC response with $\omega_n = \frac{1}{\sqrt{LC}}$
 - **Diode OFF:** Current = 0, capacitor voltage constant
 
-**Applications:** Resonant converters, energy transfer circuits
+**Applications:** Resonant converters, energy transfer circuits, signal conditioning
 
 <!-- Image placeholder -->
 <div align="center">
-  <img src="./images/rlc_diode_circuit.png" alt="RLC with Diode" width="500"/>
-  <p><i>Figure 6: RLC circuit with diode</i></p>
+  <img src="./images/shunt_clipper.png" alt="Shunt Clipper Circuit" width="500"/>
+  <p><i>Figure 6: Shunt clipper circuit for peak voltage limiting</i></p>
 </div>
 
 ---
 
 ## 9. Simulations
 
----
+**Circuit Implementations and Results:**
 
-## 9. Simulations
+**Single-Phase Rectifiers:**
+- `rectificador_monofasico.png`: Full-wave bridge producing 120V DC with characteristic 48.2% ripple
+- `rectificador_monofasico_media_onda.png`: Half-wave rectifier demonstration showing 100% ripple factor
+- `rectificador_monofasico_media_onda_condensor.png`: Capacitive filtering reducing ripple to acceptable levels
 
-**Simulation Results Analysis:**
+**Three-Phase Rectifiers:**
+Simulation results validate theoretical performance:
+- Input: 120V line-to-line RMS, 50Hz three-phase supply
+- Output: 120V DC with minimal 4.2% ripple factor
+- Filter effectiveness demonstrated in capacitor-filtered configurations
 
-The conducted simulations validate the theoretical analysis and demonstrate key rectifier characteristics:
-
-**Single-Phase Rectifier Performance:**
-- Filtered output achieves ~120V DC with capacitive smoothing
-- Unfiltered output shows characteristic pulsating waveform with 100Hz ripple frequency
-- Capacitive filtering significantly reduces ripple content
-
-**Three-Phase Rectifier Performance:**
-- Superior DC quality with minimal ripple due to six-pulse operation
-- Balanced three-phase input (120° phase shift) results in smooth output
-- Higher efficiency and better transformer utilization compared to single-phase
-
-**Diode Protection Circuits:**
-- Shunt clipper effectively limits voltage peaks using standard 1N4007 diodes
-- Demonstrates practical application of diodes in circuit protection
+**Signal Processing Applications:**
+Clipping and slicing circuits demonstrate practical diode applications in signal conditioning, with precise voltage level control and protection functions.
 
 **File Organization:**
 - **[Simulation Files](./simulation_files/):** LTSpice files (.asc)
-- **[Images](./images/):** Circuit diagrams and waveform analysis
+- **[Images](./images/):** Waveforms and circuit analysis plots
 
 ---
 
