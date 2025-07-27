@@ -31,6 +31,11 @@ $$I_D = I_S \left( e^{\frac{V_D}{n V_T}} - 1 \right)$$
 - Reverse recovery time (t_rr): 25ns to 30μs
 - Forward voltage drop (V_F): 0.7V to 1.5V
 
+<div align="center">
+  <img src="./images/diode_iv_curve.png" alt="I-V Characteristic Curve of a Power Diode" width="500"/>
+  <p><i>Figure 1: Curva característica I-V de un diodo de potencia.</i></p>
+</div>
+
 ---
 
 ## 3. Types of Diodes
@@ -54,6 +59,11 @@ Use a metal-semiconductor junction instead of a P–N junction.
 - **Applications:** High-speed, low-voltage circuits.  
 - Limited reverse voltage (< 100 V) and higher leakage current.
 
+<div align="center">
+  <img src="./images/diode_types_comparison.png" alt="Comparison of Diode Types" width="500"/>
+  <p><i>Figure 2: Comparación de los tipos de diodos.</i></p>
+</div>
+
 ---
 
 ## 4. Freewheeling Operation
@@ -72,6 +82,11 @@ Freewheeling diodes provide current continuity in inductive circuits when switch
 - **Reduce voltage spikes** across switching devices, enhancing reliability.
 
 This operation is critical in DC chopper circuits, inverter-fed motors, and controlled rectifiers where inductive elements are present.
+
+<div align="center">
+  <img src="./images/freewheeling_diode_circuit.png" alt="Freewheeling Diode in an Inductive Circuit" width="400"/>
+  <p><i>Figure 3: Diodo de libre circulación en un circuito inductivo.</i></p>
+</div>
 
 ---
 
@@ -171,21 +186,21 @@ A six-diode configuration that offers superior performance, ideal for industrial
 ## 7. Rectifier Circuit Design
 
 **Design Steps [1][3]:**
-1. Determine load requirements (V_dc, I_dc)
-2. Select topology (single-phase vs three-phase)
-3. Choose diodes with safety margins
-4. Design filter components
+1. Determine load requirements (e.g., required DC voltage and current).
+2. Select the appropriate rectifier topology (single-phase for simple applications, three-phase for industrial use).
+3. Choose diodes with voltage and current ratings that are safely above the expected operating values.
+4. Design a filter (usually a capacitor) to smooth the DC output and reduce ripple.
 
 **Component Selection:**
-- Diode voltage rating: $V_{RRM} \geq 2 \times PIV$
-- Diode current rating: $I_{F(AV)} \geq 1.5 \times I_{load}$
-- Filter capacitor: $C = \frac{I_{load}}{2fV_{ripple}}$
+- **Diode Voltage Rating:** Should be significantly higher than the Peak Inverse Voltage (PIV) to avoid breakdown.
+- **Diode Current Rating:** Should be higher than the average DC load current.
+- **Filter Capacitor:** The value is chosen to achieve the desired level of ripple in the output voltage.
 
 **Design Example:**
-Output: 24V DC, 5A; Input: 230V AC
-- PIV = 37.7V → Select 100V diodes
-- Average current = 5A → Select 10A diodes
-- Filter: C = 22mF for 5% ripple
+For a simple 24V DC, 5A power supply from a 230V AC input:
+- A full-wave bridge rectifier would be suitable.
+- Diodes should be rated for a PIV well above 325V (the peak of 230V AC) and a current above 5A.
+- A large capacitor would be needed to smooth the output.
 
 ---
 
