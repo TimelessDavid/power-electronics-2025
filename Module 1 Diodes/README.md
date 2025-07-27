@@ -31,12 +31,6 @@ $$I_D = I_S \left( e^{\frac{V_D}{n V_T}} - 1 \right)$$
 - Reverse recovery time (t_rr): 25ns to 30μs
 - Forward voltage drop (V_F): 0.7V to 1.5V
 
-<!-- Image placeholder -->
-<div align="center">
-  <img src="./images/power_diode_structure.png" alt="Power Diode Structure" width="500"/>
-  <p><i>Figure 1: Power diode structure</i></p>
-</div>
-
 ---
 
 ## 3. Types of Diodes
@@ -60,12 +54,6 @@ Use a metal-semiconductor junction instead of a P–N junction.
 - **Applications:** High-speed, low-voltage circuits.  
 - Limited reverse voltage (< 100 V) and higher leakage current.
 
-<!-- Image placeholder -->
-<div align="center">
-  <img src="./images/diode_types_comparison.png" alt="Diode Types" width="500"/>
-  <p><i>Figure 2: Diode types comparison</i></p>
-</div>
-
 ---
 
 ## 4. Freewheeling Operation
@@ -85,51 +73,39 @@ Freewheeling diodes provide current continuity in inductive circuits when switch
 
 This operation is critical in DC chopper circuits, inverter-fed motors, and controlled rectifiers where inductive elements are present.
 
-<!-- Image placeholder -->
-<div align="center">
-  <img src="./images/freewheeling_circuit.png" alt="Freewheeling Circuit" width="400"/>
-  <p><i>Figure 3: Freewheeling diode operation</i></p>
-</div>
-
 ---
 
 ## 5. Rectifiers with Diodes
 
-### 5.1. Single-Phase Full-Wave Bridge
+### 5.1. Single-Phase Rectifiers
 
-Four-diode bridge configuration for AC to DC conversion [2]:
+**Half-Wave Rectifier:**
+This is the simplest rectifier, using one diode. It is inefficient and has high ripple.
+- **Simulation Analysis:**
+  - `rectificador_monofasico_media_onda.png`: Shows the basic half-wave circuit. The output is only the positive half of the AC sine wave.
+  - `rectificador_monofasico_media_onda_condensor.png`: Demonstrates how adding a filter capacitor smooths the output, though significant ripple remains.
 
-**Key Parameters:**
-- Average voltage: $V_{dc} = \frac{2V_m}{\pi} = 0.637 V_m$
-- Ripple factor: $RF = 0.482$
-- PIV per diode: $PIV = V_m$
-
-**Simulation Results:**
-The single-phase rectifier simulation demonstrates typical full-wave rectification:
-- `rectificador_monofasico.png` shows the complete four-diode bridge circuit producing 120V DC output
-- Output exhibits characteristic pulsating DC waveform with 100Hz ripple frequency
+**Full-Wave Bridge Rectifier:**
+Uses a four-diode bridge for more efficient AC to DC conversion.
+- **Key Parameters:**
+  - Average voltage: $V_{dc} = \frac{2V_m}{\pi} = 0.637 V_m$
+  - Ripple factor: $RF = 0.482$
+  - PIV per diode: $PIV = V_m$
+- **Simulation Analysis:**
+  - `rectificador_monofasico.png`: The simulation shows the complete four-diode bridge circuit producing a full-wave rectified output from a 120V source.
 
 ### 5.2. Three-Phase Full-Wave Bridge
 
-Six-diode configuration with superior performance [3]:
-
-**Key Parameters:**
-- Average voltage: $V_{dc} = \frac{3\sqrt{6}V_{LL}}{\pi} = 1.35 V_{LL}$
-- Ripple factor: $RF = 0.042$
-- PIV per diode: $PIV = \sqrt{3}V_{LL}$
-
-**Simulation Analysis:**
-Three-phase rectifier simulations confirm superior performance:
-- `rectificador_trifasico_sources.png`: Balanced 120V three-phase sources with 120° displacement
-- `rectificador_trifásico.png`: Complete six-diode bridge configuration
-- `rectificador_trifasico_V_R2_without_condensor.png`: Six-pulse output with 4.2% ripple
-- `rectificador_trifasico_V_R2_with_condensor.png`: Filtered output achieving near-constant 120V DC
-
-<!-- Image placeholder -->
-<div align="center">
-  <img src="./images/rectificador_trifásico.png" alt="Three-Phase Rectifier Circuit" width="600"/>
-  <p><i>Figure 4: Three-phase bridge rectifier configuration</i></p>
-</div>
+A six-diode configuration that offers superior performance, ideal for industrial applications.
+- **Key Parameters:**
+  - Average voltage: $V_{dc} = \frac{3\sqrt{6}V_{LL}}{\pi} = 1.35 V_{LL}$
+  - Ripple factor: $RF = 0.042$
+  - PIV per diode: $PIV = \sqrt{3}V_{LL}$
+- **Simulation Analysis:**
+  - `rectificador_trifasico_sources.png`: Shows the balanced 120V three-phase sources, each displaced by 120°.
+  - `rectificador_trifásico.png`: The complete six-diode bridge configuration.
+  - `rectificador_trifasico_V_R2_without_condensor.png`: The output waveform shows a six-pulse DC signal with a low 4.2% ripple before filtering.
+  - `rectificador_trifasico_V_R2_with_condensor.png`: After adding a filter capacitor, the output is a nearly constant 120V DC, demonstrating the effectiveness of three-phase rectification.
 
 ---
 
@@ -193,63 +169,39 @@ Output: 24V DC, 5A; Input: 230V AC
 - Average current = 5A → Select 10A diodes
 - Filter: C = 22mF for 5% ripple
 
-<!-- Image placeholder -->
-<div align="center">
-  <img src="./images/rectifier_design.png" alt="Rectifier Design" width="500"/>
-  <p><i>Figure 5: Rectifier design methodology</i></p>
-</div>
-
 ---
 
 ## 8. RLC Circuit Behavior with Diodes
 
-RLC circuits with diodes exhibit nonlinear behavior due to diode switching [1]:
+RLC circuits with diodes exhibit nonlinear behavior due to the switching nature of the diode. This is fundamental for applications like signal clipping and slicing.
 
 **Diode Clipping Applications:**
-Real-world implementations demonstrate diode behavior in signal processing:
-- `shunt_clipper.png`: Shunt clipper circuit configuration for peak limiting
-- `Shunt_clipper_graphic_possitive_peak_clipping.png`: Positive peak clipping at 10V level, demonstrating diode forward conduction
-- `Shunt_clipper_graphic_negative_peak_clipping.png`: Negative peak clipping protection, showing diode reverse blocking
+Clipping circuits are used to limit the voltage of a signal to a certain level.
+- **Simulation Analysis:**
+  - `shunt_clipper.png`: Shows a shunt clipper circuit, where the diode is in parallel with the load.
+  - `Shunt_clipper_graphic_possitive_peak_clipping.png`: This graph shows the output when the positive peak of the signal is clipped at the diode's forward voltage (~0.7V) plus the reference voltage.
+  - `Shunt_clipper_graphic_negative_peak_clipping.png`: This shows the negative peak being clipped.
 
 **Signal Slicing:**
-- `slicer.png`: Slicer circuit implementing dual-level voltage limiting
-- `slicer_graphic.png`: Output waveform showing precise voltage level control between upper and lower clipping levels
+Slicing circuits, or clippers, remove a part of the signal between two voltage levels.
+- **Simulation Analysis:**
+  - `slicer.png`: The circuit diagram for a slicer, often using two diodes and two reference voltages.
+  - `slicer_graphic.png`: The output waveform shows the signal being "sliced" between the upper and lower voltage limits defined by the circuit.
 
 **Operating Modes:**
-- **Diode ON:** Standard RLC response with $\omega_n = \frac{1}{\sqrt{LC}}$
-- **Diode OFF:** Current = 0, capacitor voltage constant
+- **Diode ON:** The circuit behaves like a standard RLC circuit.
+- **Diode OFF:** The current path is open, and the capacitor holds its voltage.
 
-**Applications:** Resonant converters, energy transfer circuits, signal conditioning
-
-<!-- Image placeholder -->
-<div align="center">
-  <img src="./images/shunt_clipper.png" alt="Shunt Clipper Circuit" width="500"/>
-  <p><i>Figure 6: Shunt clipper circuit for peak voltage limiting</i></p>
-</div>
+**Applications:** Resonant converters, energy transfer circuits, signal conditioning.
 
 ---
 
 ## 9. Simulations
 
-**Circuit Implementations and Results:**
+All simulation files and resulting images are organized in the repository for review.
 
-**Single-Phase Rectifiers:**
-- `rectificador_monofasico.png`: Full-wave bridge producing 120V DC with characteristic 48.2% ripple
-- `rectificador_monofasico_media_onda.png`: Half-wave rectifier demonstration showing 100% ripple factor
-- `rectificador_monofasico_media_onda_condensor.png`: Capacitive filtering reducing ripple to acceptable levels
-
-**Three-Phase Rectifiers:**
-Simulation results validate theoretical performance:
-- Input: 120V line-to-line RMS, 50Hz three-phase supply
-- Output: 120V DC with minimal 4.2% ripple factor
-- Filter effectiveness demonstrated in capacitor-filtered configurations
-
-**Signal Processing Applications:**
-Clipping and slicing circuits demonstrate practical diode applications in signal conditioning, with precise voltage level control and protection functions.
-
-**File Organization:**
-- **[Simulation Files](./simulation_files/):** LTSpice files (.asc)
-- **[Images](./images/):** Waveforms and circuit analysis plots
+- **[Simulation Files](./simulation_files/):** Contains all LTSpice circuit files (.asc).
+- **[Images](./images/):** Contains all output waveforms and plots.
 
 ---
 
