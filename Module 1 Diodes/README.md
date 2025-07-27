@@ -2,58 +2,7 @@
 
 ## 1. Introduction
 
-Power diodes are semiconductor devices designed for high current and voltage applications in power electronic circuits. This report examines diode characteristics, t---
-
-## 9. Simulation Results and Analysis
-
-Circuit simulations validate theoretical predictions and demonstrate practical behavior of rectifier circuits. The following LTSpice simulations illustrate key concepts:
-
-### 9.1. Diode Clipping Circuits (Shunt Clipper)
-
-**Circuit Configuration:** Parallel diode arrangement with resistive load demonstrates voltage limiting behavior.
-- **Positive Peak Clipping:** 1N4007 diode limits positive voltage excursions to ~0.7V
-- **Negative Peak Clipping:** Inverted configuration clips negative peaks
-- **Applications:** Signal conditioning, overvoltage protection
-
-**Observed Behavior:** Input sinusoid (±10V) effectively clipped to diode forward voltage, confirming theoretical predictions.
-
-### 9.2. Single-Phase Full-Wave Bridge Rectifier
-
-**Circuit Parameters:**
-- Input: 120V AC, 60Hz sinusoidal source
-- Diodes: Four 1N4007 general-purpose diodes
-- Load: 100kΩ resistive load with 100μF filter capacitor
-
-**Simulation Results:**
-- **Without Filter:** Output shows characteristic pulsating DC with 120Hz ripple frequency
-- **With Capacitive Filter:** Smoother DC output (~118V) with reduced ripple
-- **Voltage Drop:** ~2V total drop across conducting diode pair confirms theoretical analysis
-
-### 9.3. Three-Phase Full-Wave Bridge Rectifier
-
-**Circuit Configuration:**
-- **Input:** Three-phase 120V AC sources with 120° phase displacement
-- **Topology:** Six-diode bridge (ES1D type diodes)
-- **Load:** 100kΩ resistor with 100μF filter capacitor
-
-**Key Observations:**
-- **Unfiltered Output:** Six-pulse rectification produces 360Hz ripple frequency
-- **Filtered Output:** Excellent DC regulation (~119V) with minimal ripple (<2%)
-- **Phase Voltages:** Clear 120° phase relationships in input waveforms (V(n010), V(n011) traces)
-- **Superior Performance:** Significantly lower ripple compared to single-phase rectifier
-
-### 9.4. Performance Comparison
-
-| Parameter | Single-Phase | Three-Phase |
-|-----------|--------------|-------------|
-| Output Voltage | ~118V DC | ~119V DC |
-| Ripple Frequency | 120Hz | 360Hz |
-| Ripple Content | High (~48%) | Low (~4%) |
-| Filter Requirements | Large capacitor needed | Minimal filtering required |
-
-**File Organization:**
-- **[Simulation Files](./simulation_files/):** LTSpice files (.asc)
-- **[Images](./images/):** Simulation waveforms and circuit diagramstification applications based on established literature [1][2][3].
+Power diodes are semiconductor devices designed for high current and voltage applications in power electronic circuits. This report examines diode characteristics, types, and rectification applications based on established literature [1][2][3].
 
 Power electronics plays a fundamental role in modern electrical energy conversion systems. Among its core components, power diodes and rectifier circuits are essential for converting alternating current (AC) into direct current (DC) in both industrial and consumer applications. Power diodes are designed to handle high current and voltage levels, making them suitable for demanding environments such as motor control systems, power supplies, and renewable energy interfaces.
 
@@ -128,18 +77,30 @@ Freewheeling diodes provide current continuity in inductive circuits when switch
 - Current decay: $i_L(t) = I_0 e^{-\frac{R}{L}t}$
 - Voltage limited to diode drop (~1V)
 
-  In power electronics circuits with inductive loads (such as motors or coils), a freewheeling diode is connected in parallel with the load to provide a path for the inductive current when the main switching device (e.g., a transistor or thyristor) turns off.
-[3]
-- **Protect the circuit** from high-voltage transients caused by the sudden interruption of current through inductance.
-- **Maintain current continuity** in the inductive load during the OFF period of the switch.
-- **Reduce voltage spikes** across switching devices, enhancing reliability.
+  In power electronics circuits with inductive loads, a freewheeling diode provides a path for the inductive current when the main switching device turns off [1].
 
-This operation is critical in DC chopper circuits, inverter-fed motors, and controlled rectifiers where inductive elements are present.
+**Operation Principle:**
+- Inductor energy: $E_L = \frac{1}{2}LI^2$
+- Current decay: $i_L(t) = I_0 e^{-\frac{R}{L}t}$
+- Voltage limited to diode drop (~1V)
+
+**Shunt Clipper Application:**
+The simulation demonstrates a shunt clipper circuit using 1N4007 diodes. This configuration clips voltage peaks at predetermined levels, protecting sensitive components from overvoltage conditions.
+
+<div align="center">
+  <img src="./images/shunt_clipper_circuit.png" alt="Shunt Clipper Circuit" width="500"/>
+  <p><i>Figure 3: Shunt clipper with positive and negative peak clipping using 1N4007 diodes</i></p>
+</div>
+
+<div align="center">
+  <img src="./images/shunt_clipper_waveforms.png" alt="Shunt Clipper Waveforms" width="600"/>
+  <p><i>Figure 4: Input sine wave (green) and clipped output (blue) demonstrating voltage limiting</i></p>
+</div>
 
 <!-- Image placeholder -->
 <div align="center">
   <img src="./images/freewheeling_circuit.png" alt="Freewheeling Circuit" width="400"/>
-  <p><i>Figure 3: Freewheeling diode operation</i></p>
+  <p><i>Figure 5: Freewheeling diode operation in inductive circuits</i></p>
 </div>
 
 ---
@@ -148,62 +109,68 @@ This operation is critical in DC chopper circuits, inverter-fed motors, and cont
 
 ### 5.1. Single-Phase Full-Wave Bridge
 
-Four-diode bridge configuration converts AC to pulsating DC [2]. LTSpice simulation validates theoretical performance:
+Four-diode bridge configuration for AC to DC conversion [2]. The simulation shows a single-phase bridge rectifier with capacitive filtering.
 
-**Circuit Parameters (Simulated):**
-- Input: 120V AC, 60Hz sinusoidal source
-- Diodes: 1N4007 (UPSC600 model) in bridge configuration  
-- Load: 100kΩ resistor with 100μF filter capacitor
+**Key Parameters:**
+- Average voltage: $V_{dc} = \frac{2V_m}{\pi} = 0.637 V_m$
+- Ripple factor: $RF = 0.482$
+- PIV per diode: $PIV = V_m$
 
-**Simulation Results:**
-- **Unfiltered Output:** Characteristic pulsating DC with 120Hz ripple frequency, peak ~170V
-- **With Filter:** Smooth DC output ~118V with significantly reduced ripple
-- **Diode Drop:** ~2V total voltage drop across conducting diode pair
+<div align="center">
+  <img src="./images/single_phase_rectifier_circuit.png" alt="Single-Phase Rectifier Circuit" width="500"/>
+  <p><i>Figure 6: Single-phase bridge rectifier with capacitive filter (100μF, 100kΩ load)</i></p>
+</div>
 
-**Key Parameters (Verified):**
-- Average voltage: $V_{dc} = \frac{2V_m}{\pi} = 0.637 V_m$ ✓
-- Ripple factor: $RF = 0.482$ ✓  
-- PIV per diode: $PIV = V_m$ ✓
+<div align="center">
+  <img src="./images/single_phase_output_filtered.png" alt="Single-Phase Filtered Output" width="600"/>
+  <p><i>Figure 7: Rectified output with capacitive filtering showing reduced ripple (~120V DC)</i></p>
+</div>
+
+<div align="center">
+  <img src="./images/single_phase_output_unfiltered.png" alt="Single-Phase Unfiltered Output" width="600"/>
+  <p><i>Figure 8: Unfiltered rectifier output showing characteristic pulsating DC waveform</i></p>
+</div>
 
 ### 5.2. Three-Phase Full-Wave Bridge
 
-Six-diode configuration demonstrates superior rectification performance [3]. Three-phase simulation confirms theoretical advantages:
+Six-diode configuration with superior performance [3]. The simulation demonstrates the three-phase rectifier's enhanced characteristics.
 
-**Circuit Parameters (Simulated):**
-- Input: Three-phase 120V AC sources with 120° phase displacement
-- Diodes: ES1D type diodes in six-diode bridge topology
-- Load: 100kΩ resistor with 100μF filter capacitor
+**Key Parameters:**
+- Average voltage: $V_{dc} = \frac{3\sqrt{6}V_{LL}}{\pi} = 1.35 V_{LL}$
+- Ripple factor: $RF = 0.042$
+- PIV per diode: $PIV = \sqrt{3}V_{LL}$
 
-**Simulation Results:**
-- **Input Phases:** Clear 120° phase relationships visible in V(n010), V(n011) waveforms
-- **Unfiltered Output:** Six-pulse rectification producing 360Hz ripple frequency  
-- **Filtered Output:** Excellent DC regulation ~119V with minimal ripple (<2%)
-- **Superior Performance:** Dramatically smoother than single-phase equivalent
+<div align="center">
+  <img src="./images/three_phase_rectifier_circuit.png" alt="Three-Phase Rectifier Circuit" width="600"/>
+  <p><i>Figure 9: Three-phase bridge rectifier with 120° phase-shifted sources and capacitive filter</i></p>
+</div>
 
-**Key Parameters (Verified):**
-- Average voltage: $V_{dc} = 1.35 V_{LL}$ ✓ (~119V from 120V input)
-- Ripple factor: $RF = 0.042$ ✓ (orders of magnitude better than single-phase)
-- Filter Requirements: Minimal capacitance needed for smooth DC output
+<div align="center">
+  <img src="./images/three_phase_output_filtered.png" alt="Three-Phase Filtered Output" width="600"/>
+  <p><i>Figure 10: Smooth DC output (~120V) with minimal ripple due to three-phase rectification</i></p>
+</div>
+
+<div align="center">
+  <img src="./images/three_phase_output_unfiltered.png" alt="Three-Phase Unfiltered Output" width="600"/>
+  <p><i>Figure 11: Unfiltered three-phase output showing six-pulse characteristic with low ripple</i></p>
+</div>
+
+<div align="center">
+  <img src="./images/three_phase_input_voltages.png" alt="Three-Phase Input Voltages" width="600"/>
+  <p><i>Figure 12: Three-phase input voltages (120° apart) showing balanced system operation</i></p>
+</div>
+- Suitable for industrial applications and high-power systems.
+- 
+**Key Parameters:**
+- Average voltage: $V_{dc} = \frac{3\sqrt{6}V_{LL}}{\pi} = 1.35 V_{LL}$
+- Ripple factor: $RF = 0.042$
+- PIV per diode: $PIV = \sqrt{3}V_{LL}$
 
 <!-- Image placeholder -->
 <div align="center">
-  <img src="./images/rectifier_circuits.png" alt="Rectifier Simulation Results" width="600"/>
-  <p><i>Figure 4: Single-phase and three-phase rectifier simulation waveforms</i></p>
+  <img src="./images/rectifier_circuits.png" alt="Rectifier Circuits" width="600"/>
+  <p><i>Figure 4: Single-phase and three-phase rectifier circuits</i></p>
 </div>
-
-### 5.3. Diode Clipping Circuits (Shunt Clipper)
-
-Parallel diode arrangements demonstrate fundamental diode switching behavior:
-
-**Positive Peak Clipping:**
-- 1N4007 diode in parallel with load clips positive voltage excursions
-- Input: ±10V sinusoid limited to ~+0.7V during positive peaks
-- Applications: Overvoltage protection, signal conditioning
-
-**Negative Peak Clipping:**
-- Reversed diode configuration clips negative voltage peaks
-- Complementary protection for bipolar signals
-- Essential in power supply protection circuits
 
 ---
 
@@ -214,20 +181,12 @@ Parallel diode arrangements demonstrate fundamental diode switching behavior:
 - Transformer Utilization Factor: $TUF = \frac{P_{dc}}{VA_{rating}}$
 - Total Harmonic Distortion: $THD = \frac{\sqrt{\sum_{n=2}^{\infty} I_n^2}}{I_1}$
 
-**Simulation-Verified Comparison:**
-| Parameter | Single-Phase (Simulated) | Three-Phase (Simulated) |
-|-----------|--------------------------|-------------------------|
-| Output Voltage | ~118V DC | ~119V DC |
-| Ripple Frequency | 120Hz | 360Hz |
-| Ripple Factor | 0.482 (High) | 0.042 (Minimal) |
-| Filter Requirements | Large capacitor needed | Minimal filtering |
+**Comparison:**
+| Parameter | Single-Phase | Three-Phase |
+|-----------|--------------|-------------|
+| Ripple Factor | 0.482 | 0.042 |
 | Efficiency | ~81% | ~95% |
 | TUF | 0.812 | 0.955 |
-
-**Key Findings from Simulations:**
-- Three-phase rectifiers provide superior DC quality with 10x lower ripple
-- Filter capacitor requirements significantly reduced in three-phase systems
-- Voltage regulation improved due to higher pulse frequency (360Hz vs 120Hz)
 **Average Output Voltage (Vdc)**
 - Represents the DC level of the rectified output.
 - For a single-phase full-wave rectifier:  
@@ -314,15 +273,31 @@ RLC circuits with diodes exhibit nonlinear behavior due to diode switching [1]:
 
 ## 9. Simulations
 
-**Objectives:** Validate theory, analyze harmonics, evaluate performance
+---
 
-**Parameters:**
-- Single-phase: 230V RMS, 50Hz, 10Ω load
-- Three-phase: 400V LL RMS, 50Hz, 5Ω load
+## 9. Simulations
+
+**Simulation Results Analysis:**
+
+The conducted simulations validate the theoretical analysis and demonstrate key rectifier characteristics:
+
+**Single-Phase Rectifier Performance:**
+- Filtered output achieves ~120V DC with capacitive smoothing
+- Unfiltered output shows characteristic pulsating waveform with 100Hz ripple frequency
+- Capacitive filtering significantly reduces ripple content
+
+**Three-Phase Rectifier Performance:**
+- Superior DC quality with minimal ripple due to six-pulse operation
+- Balanced three-phase input (120° phase shift) results in smooth output
+- Higher efficiency and better transformer utilization compared to single-phase
+
+**Diode Protection Circuits:**
+- Shunt clipper effectively limits voltage peaks using standard 1N4007 diodes
+- Demonstrates practical application of diodes in circuit protection
 
 **File Organization:**
 - **[Simulation Files](./simulation_files/):** LTSpice files (.asc)
-- **[Images](./images/):** Waveforms and analysis plots
+- **[Images](./images/):** Circuit diagrams and waveform analysis
 
 ---
 
