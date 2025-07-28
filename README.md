@@ -6,6 +6,18 @@ This repository contains laboratory exercises, theoretical foundations, and prac
 
 ---
 
+### Project Team
+
+**Professor:**
+- MSc Eng. Miguel Ortiz (miguel.ortizp@upb.edu.co)
+
+**Students:**
+- Wilmer Jiménez (wilmer.jimenez@upb.edu.co)
+- David Luján (david.lujana@upb.edu.co)
+- Joiner Arrieta (joiner.arrieta@upb.edu.co)
+
+---
+
 ## Course Structure
 
 | Module | Core Topic                 | Status      | Link                                     |
@@ -30,5 +42,5 @@ This module covers fundamental concepts of power diodes and rectification circui
 ### Tools and Software
 - **LTSpice:** Circuit simulation and analysis
 - **Markdown:** Technical documentation
-- **Python:** Data processing and analysis 
+- **Python:** Data processing and analysis
 
