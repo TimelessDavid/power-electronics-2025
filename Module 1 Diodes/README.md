@@ -137,7 +137,50 @@ A six-diode configuration that offers superior performance, ideal for industrial
 
 ---
 
-## 6. Performance Parameters
+## 6. Power Rectifier Formulas
+
+### 6.1. Single-Phase Half-Wave Rectifier
+**Output Voltage:**
+- Average (DC): $V_{dc} = \frac{V_m}{\pi} = 0.318 V_m$
+- RMS: $V_{rms} = \frac{V_m}{2}$
+- Ripple Factor: $RF = \sqrt{\left(\frac{V_{rms}}{V_{dc}}\right)^2 - 1} = 1.21$
+
+**Diode Specifications:**
+- Peak Inverse Voltage: $PIV = V_m$
+- Average Current: $I_{av} = \frac{I_m}{\pi}$
+
+### 6.2. Single-Phase Full-Wave Rectifier
+**Center-Tap Configuration:**
+- Average Voltage: $V_{dc} = \frac{2V_m}{\pi} = 0.637 V_m$
+- RMS Voltage: $V_{rms} = \frac{V_m}{\sqrt{2}}$
+- Ripple Factor: $RF = 0.482$
+- PIV per diode: $PIV = 2V_m$
+
+**Bridge Configuration:**
+- Average Voltage: $V_{dc} = \frac{2V_m}{\pi} = 0.637 V_m$
+- PIV per diode: $PIV = V_m$
+- Efficiency: $\eta = 81.2\%$
+
+### 6.3. Three-Phase Full-Wave Rectifier
+**Six-Pulse Bridge:**
+- Average Voltage: $V_{dc} = \frac{3\sqrt{6}V_{LL}}{2\pi} = 1.35 V_{LL}$
+- RMS Voltage: $V_{rms} = \sqrt{\frac{3}{2}}V_{LL}$
+- Ripple Factor: $RF = 0.042$
+- PIV per diode: $PIV = \sqrt{3}V_{LL}$
+- Efficiency: $\eta = 95.1\%$
+
+### 6.4. Universal Rectifier Parameters
+**Form Factor:** $FF = \frac{V_{rms}}{V_{dc}}$
+
+**Transformer Utilization Factor:** $TUF = \frac{P_{dc}}{VA_{rating}}$
+
+**Peak Factor:** $PF = \frac{V_m}{V_{rms}}$
+
+**Rectification Efficiency:** $\eta = \frac{P_{dc}}{P_{ac}} = \frac{(V_{dc})^2/R}{(V_{rms})^2/R} = \left(\frac{V_{dc}}{V_{rms}}\right)^2$
+
+---
+
+## 7. Performance Parameters
 
 **Key Metrics [1][2]:**
 - Efficiency: $\eta = \frac{P_{dc}}{P_{ac}}$
@@ -178,7 +221,7 @@ A six-diode configuration that offers superior performance, ideal for industrial
 
 ---
 
-## 7. Rectifier Circuit Design
+## 8. Rectifier Circuit Design
 
 **Design Steps [1][3]:**
 1. Determine load requirements (e.g., required DC voltage and current).
@@ -199,7 +242,7 @@ For a simple 24V DC, 5A power supply from a 230V AC input:
 
 ---
 
-## 8. RLC Circuit Behavior with Diodes
+## 9. RLC Circuit Behavior with Diodes
 
 RLC circuits with diodes exhibit nonlinear behavior due to the switching nature of the diode. This is fundamental for applications like signal clipping and slicing.
 
@@ -237,7 +280,7 @@ Slicing circuits, or clippers, remove a part of the signal between two voltage l
 
 ---
 
-## 9. Simulations
+## 10. Simulations
 
 All simulation files and resulting images are organized in the repository for review.
 
@@ -246,7 +289,7 @@ All simulation files and resulting images are organized in the repository for re
 
 ---
 
-## 10. Conclusions
+## 11. Conclusions
 
 Power diodes play a fundamental role in converting AC to DC in power electronic systems. Their selection—whether general-purpose, fast-recovery, or Schottky—depends on the operating frequency, voltage, and current requirements of the application. Freewheeling diodes are especially useful when working with inductive loads, as they help prevent voltage spikes and maintain current continuity when the main switch is turned off. Rectifiers built with diodes, either single-phase or three-phase, are widely used in industrial and electronic applications, and their performance is evaluated through parameters like average output voltage, ripple, and efficiency. A proper rectifier design considers diode ratings, filtering components, and protection elements such as heat sinks and fuses. Understanding the behavior of RLC loads in these circuits also helps improve stability and overall system performance.
 
