@@ -301,6 +301,9 @@ Power diodes are essential components in power electronics with distinct charact
 
 ---
 
+# Video presentation
+[Module 1 - Diodes](https://youtu.be/YeyySsc6jQ0)
+
 ## References
 
 [1] Erickson, R. W., & Maksimović, D. (2001). *Fundamentals of Power Electronics* (2nd ed.). Springer.
