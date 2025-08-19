@@ -107,6 +107,7 @@ As a voltage-controlled device, the IGBT's operation is similar to that of a pow
 The physical structure and equivalent circuit models provide insight into the IGBT's behavior.
 
 ![Cross-section and equivalent circuit of an IGBT](images/figure_4.39_Cross_SE_IGBTs.png)
+
 *Figure 4.39: Cross-section and equivalent circuit of an IGBT.*
 
 - **(a) Cross-Section:** The diagram shows the IGBT's layered structure, with a p+ substrate (Collector), an n+ buffer layer, and an n- drift region. The gate structure, insulated by a silicon oxide layer, controls conductivity in the p-body region.
@@ -114,6 +115,7 @@ The physical structure and equivalent circuit models provide insight into the IG
 - **(c) Simplified Circuit:** A more straightforward model shows the essential components: an N-channel MOSFET driving a PNP BJT.
 
 ![IGBT symbol and basic circuit](images/figure_4.40_symbolSystem_IGBTs.png)
+
 *Figure 4.40: IGBT symbol and basic circuit.*
 
 The standard schematic symbol for an IGBT combines elements from both MOSFET and BJT symbols. The figure also shows a typical switching circuit where the IGBT controls current flow through a resistive load `RD`.
@@ -123,6 +125,7 @@ The standard schematic symbol for an IGBT combines elements from both MOSFET and
 The electrical behavior of an IGBT is defined by its output and transfer characteristics.
 
 ![Typical output and transfer characteristics of an IGBT](images/figure_4.41_typicalOutputTrans_IGBT.png)
+
 *Figure 4.41: Typical output and transfer characteristics of an IGBT.*
 
 - **(a) Output Characteristics:** This graph plots collector current (`IC`) versus collector-emitter voltage (`VCE`) for various gate-emitter voltages (`VGE`). As `VGE` increases beyond the threshold, the IGBT turns on, allowing significant current flow with a low on-state voltage drop.
@@ -136,6 +139,7 @@ Silicon Carbide (SiC) has emerged as a superior material for power devices, lead
 - **Applications:** Their high-speed switching capability makes them ideal for high-frequency, high-power systems.
 
 ![Simplified structure of a 4H-SiC p-channel IGBT](images/figure_4.42_4H-SiC-pChannel-IGBT.png)
+
 *Figure 4.42: Simplified structure of a 4H-SiC p-channel IGBT.*
 
 The cross-section of a SiC IGBT shows a structure optimized for high performance. The layer design, including thickness and doping levels, is engineered to achieve the desired voltage and current ratings.
