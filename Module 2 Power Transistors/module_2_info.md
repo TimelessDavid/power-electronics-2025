@@ -109,9 +109,12 @@ The physical structure and equivalent circuit models provide insight into the IG
 ![Cross-section and equivalent circuit of an IGBT](images/figure_4.39_Cross_SE_IGBTs.png)
 *Figure 4.39: Cross-section and equivalent circuit of an IGBT.*
 
+The figure illustrates the IGBT's physical design and its circuit models:
 - **(a) Cross-Section:** The diagram shows the IGBT's layered structure, with a p+ substrate (Collector), an n+ buffer layer, and an n- drift region. The gate structure, insulated by a silicon oxide layer, controls conductivity in the p-body region.
 - **(b) Equivalent Circuit:** The IGBT can be modeled as a Darlington configuration comprising an N-channel MOSFET, an NPN BJT, and a PNP BJT. The MOSFET controls the base current of the NPN BJT, which in turn drives the main PNP BJT, highlighting the device's hybrid nature.
 - **(c) Simplified Circuit:** A more straightforward model shows the essential components: an N-channel MOSFET driving a PNP BJT.
+
+<br/>
 
 ![IGBT symbol and basic circuit](images/figure_4.40_symbolSystem_IGBTs.png)
 *Figure 4.40: IGBT symbol and basic circuit.*
@@ -125,6 +128,7 @@ The electrical behavior of an IGBT is defined by its output and transfer charact
 ![Typical output and transfer characteristics of an IGBT](images/figure_4.41_typicalOutputTrans_IGBT.png)
 *Figure 4.41: Typical output and transfer characteristics of an IGBT.*
 
+The graphs describe the IGBT's electrical behavior:
 - **(a) Output Characteristics:** This graph plots collector current (`IC`) versus collector-emitter voltage (`VCE`) for various gate-emitter voltages (`VGE`). As `VGE` increases beyond the threshold, the IGBT turns on, allowing significant current flow with a low on-state voltage drop.
 - **(b) Transfer Characteristics:** This curve shows the relationship between `IC` and `VGE`. The device begins to conduct significantly once `VGE` surpasses the threshold voltage (`VGE(th)`), which is around 6V in this example.
 
@@ -134,6 +138,8 @@ Silicon Carbide (SiC) has emerged as a superior material for power devices, lead
 
 - **Performance:** SiC IGBTs offer higher blocking voltages (up to 10 kV), lower on-state resistance, and reduced switching losses compared to their silicon counterparts.
 - **Applications:** Their high-speed switching capability makes them ideal for high-frequency, high-power systems.
+
+<br/>
 
 ![Simplified structure of a 4H-SiC p-channel IGBT](images/figure_4.42_4H-SiC-pChannel-IGBT.png)
 *Figure 4.42: Simplified structure of a 4H-SiC p-channel IGBT.*
