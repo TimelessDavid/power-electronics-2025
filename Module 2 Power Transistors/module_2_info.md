@@ -64,8 +64,8 @@ A bipolar junction transistor (BJT) is created by adding a second p- or n-type r
 ### 3.2. Characteristics
 
 *(Based on Rashid, Chapter 4.6.1, 4.6.2 & 4.6.3)*
--**Steady-State Characteristics**
-- A transistor operates in three distinct regions: cutoff, active, and saturation.
+- **Steady-State Characteristics**
+  - A transistor operates in three distinct regions: cutoff, active, and saturation.
   -	In the cutoff region, both junctions are reverse biased, the base current is too small to turn the transistor on, and the device remains off.
   -	In the active region, the transistor behaves as an amplifier: the base current is amplified by the forward current gain βF, the CBJ is reverse biased, and the BEJ is forward biased.
 	- In the saturation region, both junctions are forward biased, the base current is sufficiently large, and the transistor acts as a switch with low VCE. Saturation is reached when further increases in base current no longer significantly increase the collector current.
@@ -76,22 +76,22 @@ A bipolar junction transistor (BJT) is created by adding a second p- or n-type r
   -	During storage time (ts): the stored charge must be removed from the base before the transistor can turn off. A reverse base current accelerates this process.
   -	During fall time (tf): the collector current decreases to zero, controlled by the reverse-biased BEJ capacitance.
 - **Switching Limits:**
-  **Second Breakdown (SB):**
-  -	Destructive phenomenon caused by current concentration in a small portion of the base.
-  -	Produces hot spots and may damage the transistor due to thermal runaway.
-  -	Depends on the combination of voltage, current, and time → energy-dependent phenomenon.
-  **Forward-Biased Safe Operating Area (FBSOA):**
-  -	Applies during turn-on and conduction state.
-  -	Limited by average junction temperature and the risk of SB.
-  -	Defines the safe IC-VCE limits for reliable operation.
-**Reverse-Biased Safe Operating Area (RBSOA):**
-  -	Applies during transistor turn-off.
-  -	The device sustains both high current and voltage with the BEJ reverse biased.
-  -	VCE must be kept at a safe level for the given IC.
-**Breakdown Voltages:**
-  -	Maximum voltage between two terminals with the third terminal open, shorted, or biased.
-  -	At breakdown, the voltage remains nearly constant while the current rises rapidly.
-  -	Manufacturers specify different breakdown values depending on test conditions.
+  -**Second Breakdown (SB):**
+    -	Destructive phenomenon caused by current concentration in a small portion of the base.
+    -	Produces hot spots and may damage the transistor due to thermal runaway.
+    -	Depends on the combination of voltage, current, and time → energy-dependent phenomenon.
+  - **Forward-Biased Safe Operating Area (FBSOA):**
+    -	Applies during turn-on and conduction state.
+    -	Limited by average junction temperature and the risk of SB.
+    -	Defines the safe IC-VCE limits for reliable operation.
+  - **Reverse-Biased Safe Operating Area (RBSOA):**
+    -	Applies during transistor turn-off.
+    -	The device sustains both high current and voltage with the BEJ reverse biased.
+    -	VCE must be kept at a safe level for the given IC.
+  - **Breakdown Voltages:**
+    -	Maximum voltage between two terminals with the third terminal open, shorted, or biased.
+    -	At breakdown, the voltage remains nearly constant while the current rises rapidly.
+    -	Manufacturers specify different breakdown values depending on test conditions.
 
 
 
