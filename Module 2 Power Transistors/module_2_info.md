@@ -67,8 +67,8 @@ A bipolar junction transistor (BJT) is created by adding a second p- or n-type r
 - **Steady-State Characteristics**
   - A transistor operates in three distinct regions: cutoff, active, and saturation.
   -	In the cutoff region, both junctions are reverse biased, the base current is too small to turn the transistor on, and the device remains off.
-  -	In the active region, the transistor behaves as an amplifier: the base current is amplified by the forward current gain βF, the CBJ is reverse biased, and the BEJ is forward biased.
-	- In the saturation region, both junctions are forward biased, the base current is sufficiently large, and the transistor acts as a switch with low VCE. Saturation is reached when further increases in base current no longer significantly increase the collector current.
+  -	In the active region, the transistor behaves as an amplifier: the base current is amplified by the forward current gain βF, the CBJ is reverse  biased, and the BEJ is forward biased.
+  - In the saturation region, both junctions are forward biased, the base current is sufficiently large, and the transistor acts as a switch with low VCE. Saturation is reached when further increases in base current no longer significantly increase the collector current.
 - **Switching Characteristics:**
   - During delay time (td): the base–emitter junction capacitance must charge to about 0.7 V before any collector current flows.
   -	During rise time (tr): the collector current increases to its steady-state value, determined by the BEJ capacitance.
@@ -76,7 +76,7 @@ A bipolar junction transistor (BJT) is created by adding a second p- or n-type r
   -	During storage time (ts): the stored charge must be removed from the base before the transistor can turn off. A reverse base current accelerates this process.
   -	During fall time (tf): the collector current decreases to zero, controlled by the reverse-biased BEJ capacitance.
 - **Switching Limits:**
-  -**Second Breakdown (SB):**
+  - **Second Breakdown (SB):**
     -	Destructive phenomenon caused by current concentration in a small portion of the base.
     -	Produces hot spots and may damage the transistor due to thermal runaway.
     -	Depends on the combination of voltage, current, and time → energy-dependent phenomenon.
