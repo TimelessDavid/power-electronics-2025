@@ -59,7 +59,7 @@ This section details the operation, characteristics, and applications of Power B
 
 *(Based on Rashid, Chapter 4.6)*
 
-Explanation of the structure and basic operation of Power BJTs.
+A bipolar junction transistor (BJT) is created by adding a second p- or n-type region to a pn-junction diode, forming two junctions: the base–emitter junction (BEJ) and the collector–base junction (CBJ). Depending on the arrangement of the layers, an NPN transistor consists of two n-regions and one p-region, while a PNP transistor consists of two p-regions and one n-region. The three external terminals of a BJT are the collector (C), the emitter (E), and the base (B).
 
 ### 3.2. Characteristics
 
