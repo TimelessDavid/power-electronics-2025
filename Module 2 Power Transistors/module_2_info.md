@@ -49,10 +49,21 @@ Detailed analysis of how Power MOSFETs operate as switches, focusing on their be
 #### 2.3.1. N-Channel vs. P-Channel
 
 An investigation into which type (N-Channel or P-Channel) is more commonly used in power applications and the reasons why.
+In power electronics, **N-Channel MOSFETs** are far more common than P-Channel MOSFETs. The primary reason for this preference lies in the **mobility of charge carriers** in silicon.
 
+* **N-Channel MOSFETs:** Use electrons as their majority charge carriers. Electrons have a mobility that is approximately two to three times higher than that of holes in silicon.
+* **P-Channel MOSFETs:** Use holes as their majority charge carriers. The lower mobility of holes means that, for the same on-state resistance ($R_{DS(on)}$), the transistor must be physically larger, which makes it more expensive and less efficient in terms of chip real estate.
+
+Because of the higher mobility of electrons, N-Channel MOSFETs can conduct a higher current with a smaller chip size and lower on-state resistance. This translates to **lower power loss** ($P = I_D^2 \cdot R_{DS(on)}$), making them the ideal choice for most high-power and switching applications.
+
+---
 #### 2.3.2. NMOS, PMOS, and CMOS
 
 A brief description of NMOS, PMOS, and CMOS technologies and their typical applications.
+* **NMOS (N-type Metal-Oxide-Semiconductor):** This technology exclusively uses N-Channel MOSFETs. NMOS circuits are faster and more compact than PMOS, but they have the drawback of consuming static power (even when not switching), which makes them less energy-efficient.
+* **PMOS (P-type Metal-Oxide-Semiconductor):** This technology exclusively uses P-Channel MOSFETs. PMOS circuits are slower than NMOS due to the lower mobility of holes, limiting their use to applications where high speed is not a critical factor.
+* **CMOS (Complementary Metal-Oxide-Semiconductor):** This is the most common technology and the one that dominates modern digital electronics. It combines complementary pairs of N-Channel and P-Channel MOSFETs on the same structure. The main advantage of CMOS is its **extremely low static power consumption**, because in any given logic state (high or low), at least one of the transistors in the pair is completely off, which stops the direct current flow from the power supply to the ground. This makes it the preferred technology for microprocessors, memory, and almost all digital logic circuits.
+
 
 ### 2.4. Simulation
 
