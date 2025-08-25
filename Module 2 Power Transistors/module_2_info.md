@@ -49,6 +49,7 @@ Detailed analysis of how Power MOSFETs operate as switches, focusing on their be
 #### 2.3.1. N-Channel vs. P-Channel
 
 An investigation into which type (N-Channel or P-Channel) is more commonly used in power applications and the reasons why.
+
 In power electronics, **N-Channel MOSFETs** are far more common than P-Channel MOSFETs. The primary reason for this preference lies in the **mobility of charge carriers** in silicon.
 
 * **N-Channel MOSFETs:** Use electrons as their majority charge carriers. Electrons have a mobility that is approximately two to three times higher than that of holes in silicon.
