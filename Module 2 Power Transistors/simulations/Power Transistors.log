@@ -1,0 +1,45 @@
+LTspice 24.0.12 for Windows
+Circuit: * C:\Users\david\Desktop\UPB Sem VIII\Electronica De Potencia\Actividades\Apartado 2\Power Transistors.asc
+Start Time: Mon Aug 25 08:54:12 2025
+Error on line 5 : v1 n005 0 v
+	 Unknown parameter "v"
+Error on line 6 : v2 n001 0 v
+	 Unknown parameter "v"
+Error on line 10 : v3 n007 0 v
+	 Unknown parameter "v"
+Error on line 11 : v4 n002 0 v
+	 Unknown parameter "v"
+Error on line 14 : v5 n013 n015 v
+	 Unknown parameter "v"
+Error on line 17 : v6 n014 n016 v
+	 Unknown parameter "v"
+solver = Normal
+Maximum thread count: 8
+tnom = 27
+temp = 27
+method = modified trap
+WARNING: Node N011 is floating.
+WARNING: Node N013 is floating.
+WARNING: Node N012 is floating.
+WARNING: Node N014 is floating.
+
+v1: Missing value, assumed 0V @ DC
+v2: Missing value, assumed 0V @ DC
+v3: Missing value, assumed 0V @ DC
+v4: Missing value, assumed 0V @ DC
+v5: Missing value, assumed 0V @ DC
+v6: Missing value, assumed 0V @ DC
+.OP point found by inspection.
+.step v2=0
+.step v2=10
+.step v2=20
+.step v2=30
+.step v2=40
+.step v2=50
+.step v2=60
+.step v2=70
+.step v2=80
+.step v2=90
+.step v2=100
+Total elapsed time: 0.128 seconds.
+
