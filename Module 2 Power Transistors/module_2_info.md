@@ -6,7 +6,26 @@ This document covers the theoretical and practical aspects of power transistors,
 
 *(Based on Rashid, Chapter 4.1 & 4.2)*
 
-A brief overview of power transistors, their importance in power electronics, and an introduction to different types like Silicon Carbide transistors.
+### 1.1. Defining the Power Transistor: A Foundational Overview
+Power transistors are semiconductor devices designed to manage and control high levels of electrical power.  
+They act as high-speed electronic switches or variable amplifiers, making them fundamental to power electronics for applications like **motor controls, inverters, and power supplies**.
+
+---
+
+### 1.2. The Modern Landscape of Power Transistor Types
+- **Bipolar Junction Transistors (BJTs):** Current-controlled.  
+- **MOSFETs (Metal-Oxide-Semiconductor Field-Effect Transistors):** Voltage-controlled, high switching speeds.  
+- **IGBTs (Insulated-Gate Bipolar Transistors):** Combine high input impedance of MOSFETs with low conduction losses of BJTs.  
+- **Darlington Pairs:** Two BJTs combined for high current gain.  
+---
+
+### 1.3. The Strategic Shift to Wide-Bandgap Semiconductors: The Case for Silicon Carbide (SiC)
+- **SiC & GaN transistors** → higher breakdown field, better thermal conductivity than silicon.  
+- Thinner active zone → lower *RDS(on)*, less power loss.  
+- Higher switching frequencies → smaller, lighter power converters.  
+- Reduced cooling system requirements → lower system cost.  
+
+---
 
 ## 2. Power MOSFETs
 
@@ -122,16 +141,21 @@ A bipolar junction transistor (BJT) is created by adding a second p- or n-type r
 
 ### 3.3. Types and Configurations (Further Research)
 
-#### 3.3.1. NPN vs. PNP
+#### 3.3.1. NPN vs PNP
+- **NPN**: Electrons (fast, low RON, efficient) → **preferred in power electronics**.  
+- **PNP**: Holes (slower), used in push-pull or high-side switching.  
 
-An investigation into which type (NPN or PNP) is more commonly used in power applications and the reasons for it.
+#### 3.3.2. Amplifier Configurations
+| Characteristic     | Common Emitter (CE) | Common Collector (CC) | Common Base (CB) |
+|---------------------|----------------------|------------------------|------------------|
+| Voltage Gain        | Medium–High         | ≈1 (unity)             | High             |
+| Current Gain        | High (β)            | High (γ)               | <1 (α<1)         |
+| Power Gain          | Very High           | High                   | Low–Medium       |
+| Input Impedance     | Medium              | Very High              | Very Low         |
+| Output Impedance    | High                | Very Low               | Very High        |
+| Phase Shift         | 180°                | 0°                     | 0°               |
 
-#### 3.3.2. BJT Configurations
-
-A summary of the main BJT configurations and their primary use cases:
-- Common Emitter
-- Common Collector
-- Common Base
+---
 
 ### 3.4. Simulation
 
