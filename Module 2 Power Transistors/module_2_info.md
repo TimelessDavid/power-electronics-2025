@@ -231,6 +231,28 @@ A basic simulation of an IGBT circuit to switch a load.
 - **Objective:** Analyze the switching behavior.
 - **Parameters to measure:** Heat (power dissipation), efficiency, turn-on time, and turn-off time.
 
+### 4.5. Evidence: Setup and Simulation
+
+<div align="center">
+  <img src="images/Montaje_Circuito.jpeg" alt="Prototype hardware setup - Module 2" />
+  <p><i>Figure: Prototype hardware setup (Module 2).</i></p>
+</div>
+
+<div align="center">
+  <img src="images/Salida_Osciloscopio.jpeg" alt="Oscilloscope capture of gate and load signals" />
+  <p><i>Figure: Oscilloscope capture of gate/load signals.</i></p>
+</div>
+
+<div align="center">
+  <img src="images/simulation_graphs.jpg" alt="Simulation graphs" />
+  <p><i>Figure: Simulation graphs.</i></p>
+</div>
+
+<div align="center">
+  <img src="images/simulation_results.jpg" alt="Simulation results overview" />
+  <p><i>Figure: Simulation results overview.</i></p>
+</div>
+
 ## 5. Project Plan & General Notes
 
 - **Rectifier:** The previously designed rectifier will be used as the input stage for the power transistor circuits.
