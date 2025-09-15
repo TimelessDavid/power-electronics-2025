@@ -25,7 +25,7 @@ This repository contains laboratory exercises, theoretical foundations, and prac
 | :----: | :------------------------- | :---------- | :--------------------------------------- |
 |   1    | Power Diodes & Rectifiers  | Active      | [Module 1](./Module%201%20Diodes/module_1_info.md) |
 |   2    | Power Transistors          | Active      | [Module 2](./Module%202%20Power%20Transistors/module_2_info.md)                                        |
-|   3    | DC-DC Converters           | Upcoming    | -                                        |
+|   3    | DC-DC Converters           | Active    | [Module 3](./Module%203%20DC_DC%20Converters/module_3_info.md)                                        |
 |   4    | Thyristors & Power Control | Upcoming    | -                                        |
 |   5    | Final Project: PV Inverter | Upcoming    | -                                        |
 
