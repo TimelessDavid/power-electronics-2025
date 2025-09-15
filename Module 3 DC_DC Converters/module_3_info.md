@@ -98,11 +98,6 @@ The transformation ratios are defined as:
 - **RFv = Vout/Vin**: Voltage ratio
 - **RFi = Iout/Iin**: Current ratio
 
-<div align="center">
-  <img src="images/pwm-duty-cycle-waveforms.png" alt="PWM Duty Cycle and Resulting Waveforms" />
-  <p><i>Figure 2: PWM signals with different duty cycles and the resulting output voltages.</i></p>
-</div>
-
 ---
 
 ## 4. Circuit Components
@@ -132,7 +127,7 @@ The TC4427 configuration provides two non-inverting outputs, making it ideal for
 
 <div align="center">
   <img src="images/tc4427-pinout-diagram.png" alt="TC4427 Pinout and Typical Connections" />
-  <p><i>Figure 3: TC4427 MOSFET driver pinout diagram with typical connections.</i></p>
+  <p><i>Figure 2: TC4427 MOSFET driver pinout diagram with typical connections.</i></p>
 </div>
 
 ---
@@ -145,10 +140,10 @@ The Buck converter operates using a PWM signal applied to the power switch. This
 
 <div align="center">
   <img src="images/pwm-duty-cycle-waveforms.png" alt="PWM Generation and Current Waveforms" />
-  <p><i>Figure 4: PWM generation by comparison method and resulting inductor current waveforms showing continuous and discontinuous conduction modes.</i></p>
+  <p><i>Figure 3: PWM generation by comparison method and resulting inductor current waveforms showing continuous and discontinuous conduction modes.</i></p>
 </div>
 
-The duty cycle "k" is determined by the ratio of ON time to the total period (T): k = ton/T. This ratio directly controls the output voltage according to the relationship: Vout = k × Vin.
+The duty cycle (k) is determined by the ratio of ON time to the total period (T): k = ton/T. This ratio directly controls the output voltage according to the relationship: Vout = k × Vin.
 
 ### 5.2. Operating Modes and Current Waveforms
 
