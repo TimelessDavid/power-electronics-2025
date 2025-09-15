@@ -148,7 +148,7 @@ The Buck converter operates using a PWM signal applied to the power switch. This
   <p><i>Figure 4: PWM generation by comparison method and resulting inductor current waveforms showing continuous and discontinuous conduction modes.</i></p>
 </div>
 
-The duty cycle (k) is determined by the ratio of ON time to the total period (T): k = ton/T. This ratio directly controls the output voltage according to the relationship: Vout = k × Vin.
+The duty cycle "k" is determined by the ratio of ON time to the total period (T): k = ton/T. This ratio directly controls the output voltage according to the relationship: Vout = k × Vin.
 
 ### 5.2. Operating Modes and Current Waveforms
 
