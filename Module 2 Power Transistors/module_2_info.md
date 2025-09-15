@@ -84,15 +84,6 @@ A brief description of NMOS, PMOS, and CMOS technologies and their typical appli
 * **PMOS (P-type Metal-Oxide-Semiconductor):** This technology exclusively uses P-Channel MOSFETs. PMOS circuits are slower than NMOS due to the lower mobility of holes, limiting their use to applications where high speed is not a critical factor.
 * **CMOS (Complementary Metal-Oxide-Semiconductor):** This is the most common technology and the one that dominates modern digital electronics. It combines complementary pairs of N-Channel and P-Channel MOSFETs on the same structure. The main advantage of CMOS is its **extremely low static power consumption**, because in any given logic state (high or low), at least one of the transistors in the pair is completely off, which stops the direct current flow from the power supply to the ground. This makes it the preferred technology for microprocessors, memory, and almost all digital logic circuits.
 
-
-### 2.4. Simulation
-
-A basic simulation of a MOSFET circuit to switch a load (e.g., a light bulb).
-
-- **Tool:** Qspice (or LTspice).
-- **Objective:** Analyze the switching behavior.
-- **Parameters to measure:** Heat (power dissipation), efficiency, turn-on time, and turn-off time.
-
 ## 3. Bipolar Junction Transistors (BJTs)
 
 *(This section is to be completed by the team member assigned to BJTs).*
@@ -157,14 +148,6 @@ A bipolar junction transistor (BJT) is created by adding a second p- or n-type r
 
 ---
 
-### 3.4. Simulation
-
-A basic simulation of a BJT circuit to switch a load (e.g., a light bulb), as described in [this tutorial](https://www.electronics-tutorials.ws/transistor/tran_4.html), but adapted for the TIP3055 Power BJT.
-
-- **Tool:** Qspice (or LTspice).
-- **Objective:** Analyze the switching behavior.
-- **Parameters to measure:** Heat (power dissipation), efficiency, turn-on time, and turn-off time.
-
 ## 4. Insulated Gate Bipolar Transistors (IGBTs)
 
 *(Based on Rashid, Chapter 4.7)*
@@ -223,15 +206,7 @@ Silicon Carbide (SiC) has emerged as a superior material for power devices, lead
 
 The cross-section of a SiC IGBT shows a structure optimized for high performance. The layer design, including thickness and doping levels, is engineered to achieve the desired voltage and current ratings.
 
-### 4.4. Simulation
-
-A basic simulation of an IGBT circuit to switch a load.
-
-- **Tool:** Qspice (or LTspice).
-- **Objective:** Analyze the switching behavior.
-- **Parameters to measure:** Heat (power dissipation), efficiency, turn-on time, and turn-off time.
-
-### 4.5. Evidence: Setup and Simulation
+### 4.4. Evidence: Setup and Simulation
 
 <div align="center">
   <img src="images/Montaje_Circuito.jpeg" alt="Prototype hardware setup - Module 2" />
