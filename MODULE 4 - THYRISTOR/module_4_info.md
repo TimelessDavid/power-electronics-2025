@@ -26,7 +26,7 @@ SCRs remain non-conductive (blocking state) until triggered by a gate pulse, aft
 
 <div align="center">
   <img src="images/scr-structure.png" alt="SCR Device Structure" />
-  <p><i>Figure 1: Schematic representation of the SCR structure and symbol.</i></p>
+  <p><i>Figure 1: Schematic and symbolic representation of the SCR (Silicon Controlled Rectifier).</i></p>
 </div>
 
 ### 2.2. Principle of Operation
@@ -109,34 +109,48 @@ def calc_alpha(R, C, V_BO, V_peak, f):
 
 ---
 
-## 5. Integrated System Topology
+## 5. DC Thyristor Switching Circuit
 
-### 5.1. Block Diagram
+A fundamental application of the SCR (thyristor) is as a DC switch, allowing or interrupting current to a load by means of gate triggering.
 
-Power flow summary:
+### 5.1. Circuit Description
 
-1. **AC 120 V (grid)**
-2. **Step-Down Transformer (120 V → 12 V AC)**
-3. **Phase-Controlled Rectifier (SCR, adjustable α)**
-4. **Variable DC Bus (9–12 V)**
-5. **Full-Bridge Inverter (PWM, low-frequency)**
-6. **Incandescent Lamp 12 V / 21 W**
+The following circuit demonstrates the use of an SCR as a controlled switch in a DC circuit:
 
 <div align="center">
-  <img src="images/scr-phase-control-block.png" alt="SCR Phase-Controlled Rectifier Block Diagram" />
-  <p><i>Figure 2: Block diagram of the phase-controlled power regulation system using SCR.</i></p>
+  <img src="images/DC_Thyristor_Switching_Circuit.png" alt="DC Thyristor Switching Circuit" />
+  <p><i>Figure 2: DC Thyristor Switching Circuit.</i></p>
 </div>
+
+**Operation:**
+- **S1 (ON):** When pressed, applies a gate current (I<sub>G</sub>) through resistors R<sub>G</sub> and R<sub>GK</sub>, triggering the SCR into conduction. The load receives current (I<sub>A</sub>).
+- **S2 (OFF):** When pressed, the anode current drops below the holding current, turning off the SCR and disconnecting the load.
+- **R<sub>G</sub> and R<sub>GK</sub>:** Limit current through the gate for safe operation.
+
+**Key Points:**
+- This demonstrates the latching behavior of SCRs: Once triggered, the device remains ON even if S1 is released, until S2 is pressed or the supply is interrupted.
+- The circuit is commonly used in basic power electronics labs to illustrate SCR operation in DC environments.
 
 ---
 
-## 6. Waveforms and Dynamic Behavior
+## 6. Half Wave Phase Control
 
-The firing angle α directly determines the shape and average value of the rectified output voltage. Increasing α reduces the conduction period, decreasing output voltage and lamp brightness.
+A widely used application of the SCR is in **half-wave phase control**, enabling adjustment of power delivered to an AC load (like a lamp) by varying the firing angle.
 
 <div align="center">
-  <img src="images/phase-control-waveform.png" alt="SCR Output Waveform at Different Alpha" />
-  <p><i>Figure 3: Output voltage waveforms for various firing angles α.</i></p>
+  <img src="images/Half_Wave_Phase_Control.png" alt="Half Wave Phase Control" />
+  <p><i>Figure 3: Half Wave Phase Control circuit with SCR, showing conduction intervals for the lamp.</i></p>
 </div>
+
+**Operation:**
+- The circuit consists of a variable resistor (R<sub>1</sub>) and capacitor (C) to delay the firing of the SCR after each zero-crossing of the AC supply.
+- When the voltage across C reaches the breakover voltage of D<sub>1</sub> (can be a DIAC or simple diode), a pulse is sent to the gate of the SCR.
+- The SCR then conducts for the remainder of the half-cycle, powering the lamp.
+- By adjusting R<sub>1</sub>, the conduction angle (and thus the brightness of the lamp) can be controlled.
+
+**Key Points:**
+- This is the basis of most simple light dimmer circuits.
+- The waveform shows the conduction period for the lamp coinciding with when the SCR is ON.
 
 ---
 
@@ -146,8 +160,10 @@ The firing angle α directly determines the shape and average value of the recti
 
 [2] Mohan, N., Undeland, T. M., & Robbins, W. P. (2003). *Power Electronics: Converters, Applications, and Design* (3rd ed.). Wiley.
 
-[3] DB3 DIAC Datasheet – STMicroelectronics.
+[3] "SCR as a DC Switch" and "Half Wave Phase Control", [Electronics Tutorials](https://www.electronics-tutorials.ws/power/thyristor.html).
 
-[4] C106B SCR Datasheet – ON Semiconductor.
+[4] DB3 DIAC Datasheet – STMicroelectronics.
+
+[5] C106B SCR Datasheet – ON Semiconductor.
 
 ---
